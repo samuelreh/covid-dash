@@ -68,7 +68,7 @@ export function RTHeader(props) {
               <Link
                 href="/[countrycode]/[subarea]"
                 as={{
-                  pathname: `/us/${props.subArea}`,
+                  pathname: `/ca/${props.subArea}`,
                   query: navigationQuery,
                 }}
               >

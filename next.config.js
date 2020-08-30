@@ -9,24 +9,6 @@ module.exports = withSass(
   withSourceMaps({
     /* config options here */
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-      // Note: we provide webpack above so you should not `require` it
-      // Perform customizations to webpack config
-      // Important: return the modified config
-      if (isAWSDeploy) {
-        config.plugins.push(
-          new webpack.DefinePlugin({
-            "process.env.SENTRY_RELEASE": JSON.stringify(buildId),
-          })
-        );
-        config.plugins.push(
-          new SentryWebpackPlugin({
-            include: ".next",
-            ignore: ["node_modules"],
-            urlPrefix: "~/_next",
-            release: buildId,
-          })
-        );
-      }
       config.module.rules.push({
         test: /\.css$/,
         loader: "style-loader!css-loader",
@@ -50,6 +32,6 @@ module.exports = withSass(
       // Important: return the modified config
       return config;
     },
-    assetPrefix: isAWSDeploy ? "https://d1s7vqgr1bmmob.cloudfront.net" : "",
+    assetPrefix: isAWSDeploy ? "https://d3ic6i8aie5n7e.cloudfront.net" : "",
   })
 );

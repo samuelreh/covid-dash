@@ -1,4 +1,5 @@
 import { USStatesByCode } from "./USStates";
+import { CanadaProvincesByCode } from "./CanadaProvinces";
 import { CountriesByCode } from "./Countries";
 import Constants from "lib/Constants";
 
@@ -10,7 +11,7 @@ export const BASE_URL =
     : "https://rt.live";
 export const LOOPBACK_BASE_URL =
   process.env["DEV_HOST"] || `http://localhost:${LOOPBACK_PORT}`;
-export const CDN_ROOT = "https://d14wlfuexuxgcm.cloudfront.net/covid";
+export const CDN_ROOT = "https://d3ic6i8aie5n7e.cloudfront.net/covid";
 
 class ConfigFlags {
   constructor(useYellowInColorCode, allowSharing) {
@@ -220,8 +221,25 @@ function US() {
   );
 }
 
+function Canada() {
+  let flags = new ConfigFlags(false, true);
+  return new Config(
+    "ca",
+    "Canada",
+    "Province",
+    "parsed_for_js5",
+    [],
+    CanadaProvincesByCode,
+    ["All"],
+    [],
+    [],
+    flags
+  );
+}
+
 function PageConfigInner() {
   this.us = US();
+  this.ca = Canada();
   this.demo = DemoLand();
 }
 

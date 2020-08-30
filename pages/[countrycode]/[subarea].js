@@ -20,12 +20,6 @@ export async function getStaticPaths() {
                   subarea: subArea,
                 },
               },
-              {
-                params: {
-                  countrycode: country.code,
-                  subarea: subArea.toLowerCase(),
-                },
-              },
             ];
           })
         );

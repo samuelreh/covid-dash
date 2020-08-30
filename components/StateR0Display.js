@@ -104,7 +104,7 @@ export const StateR0Display = React.forwardRef((props, ref) => {
         <Col verticalAlign="middle" textAlign="right" size={8}>
           <Link
             href="/[countrycode]/[subarea]"
-            as={{ pathname: `/us/${props.subArea}`, query: navigationQuery }}
+            as={{ pathname: `/ca/${props.subArea}`, query: navigationQuery }}
           >
             <DetailsLink hovered={hovered}>
               Details{" "}

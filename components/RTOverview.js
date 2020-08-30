@@ -19,7 +19,7 @@ const heroRef = React.createRef();
 function stateClickHandler(router, stateCode) {
   let navigationQuery = Util.getNavigationQuery(document.location.search);
   router.push("/[countrycode]/[subarea]", {
-    pathname: `/us/${stateCode}`,
+    pathname: `/ca/${stateCode}`,
     query: navigationQuery,
   });
 }
